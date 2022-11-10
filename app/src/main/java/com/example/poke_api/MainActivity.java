@@ -42,8 +42,11 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<PokemonResponse> call, Response<PokemonResponse> response) {
                 if(response.isSuccessful()){
 //                    assert response.body() != null;
-                    String pokemon = response.body().getPokemonList().get(2).getName();
-                    Log.d(DEBUG_POKEMON, "Te elijo a tí: " + pokemon);
+                    for(int i=0; i<response.body().getPokemonList().size();i++){
+                        String pokemon = response.body().getPokemonList().get(i).getName();
+                        Log.d(DEBUG_POKEMON, "Te elijo a tí: " + pokemon);
+                    }
+
                 }
             }
 
