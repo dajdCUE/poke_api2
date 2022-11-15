@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.poke_api.models.Pokemon;
 import com.example.poke_api.network.PokeApi;
 import com.example.poke_api.responses.PokemonResponse;
 
@@ -43,10 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
 //                    assert response.body() != null;
                     for(int i=0; i<response.body().getPokemonList().size();i++){
-                        String pokemon = response.body().getPokemonList().get(i).getName();
-                        Log.d(DEBUG_POKEMON, "Te elijo a tí: " + pokemon);
+                        Pokemon pokemon = response.body().getPokemonList().get(i);
+                        Log.d(DEBUG_POKEMON, "Te elijo a tí: " + pokemon.getName()+ " id: " + pokemon.getId());
                     }
-
                 }
             }
 
