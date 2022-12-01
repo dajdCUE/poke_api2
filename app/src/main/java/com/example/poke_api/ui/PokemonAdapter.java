@@ -1,6 +1,7 @@
 package com.example.poke_api.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.poke_api.R;
+import com.example.poke_api.activities.pokemonPage;
 import com.example.poke_api.models.Pokemon;
 
 import java.util.List;
@@ -82,6 +84,15 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
                     .fitCenter()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(ivPokemon);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, pokemonPage.class);
+                    i.putExtra("id", pokemon.getId());
+                    context.startActivity(i);
+                }
+            });
 
         }
 

@@ -1,6 +1,4 @@
-package com.example.poke_api;
-
-import static com.example.poke_api.utils.Constants.DEBUG_POKEMON;
+package com.example.poke_api.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.poke_api.R;
 import com.example.poke_api.models.Pokemon;
 import com.example.poke_api.network.PokeApi;
 import com.example.poke_api.responses.PokemonResponse;
