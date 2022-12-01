@@ -12,7 +12,7 @@ public interface PokeApi {
     @GET("pokemon")
     Call<PokemonResponse> getPokemonList();
 
-    @GET("pokemon/{id}/")
-    Call<PokemonStats> getPokemonByID(@Path("id") String id);
+    @GET("pokemon/{nombre}/")
+    Call<PokemonStats> getPokemonByName(@Path("nombre") String nombre);
 
 }
