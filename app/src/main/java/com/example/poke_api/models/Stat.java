@@ -1,8 +1,8 @@
 package com.example.poke_api.models;
 
 public class Stat {
-    private int baseStat;
-    private int effort;
+    private long baseStat;
+    private long effort;
     private Species stat;
 
     public Species getStat() {
@@ -13,19 +13,19 @@ public class Stat {
         this.stat = stat;
     }
 
-    public int getBaseStat() {
+    public long getBaseStat() {
         return baseStat;
     }
 
-    public void setBaseStat(int baseStat) {
+    public void setBaseStat(long baseStat) {
         this.baseStat = baseStat;
     }
 
-    public int getEffort() {
+    public long getEffort() {
         return effort;
     }
 
-    public void setEffort(int value) {
+    public void setEffort(long value) {
         this.effort = value;
     }
 
