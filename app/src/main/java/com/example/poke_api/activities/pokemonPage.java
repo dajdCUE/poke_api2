@@ -66,12 +66,7 @@ public class pokemonPage extends AppCompatActivity {
                 if(response.isSuccessful()){
                     PokemonStats pokemonStats = response.body();
 
-                    //System.out.println(""+pokemonStats.getStatsList().get(0).getBaseStat());
-
-                    //tv.setText(""+pokemonStats.getStatsList().get(0).getStat().getName());
-                    //String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"+id+".gif";
-
-
+                   
                     String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+id+".png";
 
 
