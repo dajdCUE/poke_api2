@@ -33,8 +33,13 @@ public class pokemonPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon_page);
 
-        TextView tvHp = (TextView) findViewById(R.id.tvHPDef);
+
         TextView tvName = (TextView) findViewById(R.id.tvNameDef);
+        TextView tvHp = (TextView) findViewById(R.id.tvHPDef);
+        TextView tvAttack = (TextView) findViewById(R.id.tvAttackDef);
+        TextView tvDefense = (TextView) findViewById(R.id.tvDefenseDef);
+        TextView tvSpecialAttack = (TextView) findViewById(R.id.tvSpecialAttackDef);
+        TextView tvSpeed = (TextView) findViewById(R.id.tvSpeedDef);
         ImageView ivPoke = (ImageView) findViewById(R.id.ivPokStat);
 
         Intent i = getIntent();
@@ -66,7 +71,7 @@ public class pokemonPage extends AppCompatActivity {
                 if(response.isSuccessful()){
                     PokemonStats pokemonStats = response.body();
 
-                   
+
                     String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+id+".png";
 
 
