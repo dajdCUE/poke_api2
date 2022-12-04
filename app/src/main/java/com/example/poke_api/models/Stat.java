@@ -17,8 +17,8 @@ public class Stat {
         return baseStat;
     }
 
-    public void setBaseStat(int value) {
-        this.baseStat = value;
+    public void setBaseStat(int baseStat) {
+        this.baseStat = baseStat;
     }
 
     public int getEffort() {

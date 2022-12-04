@@ -92,10 +92,9 @@ public class pokemonPage extends AppCompatActivity {
                     }else{
                         System.out.println("Vamos bien" + pokemonStats.getStats()[0].getBaseStat());
                     }
-                    tvHP.setText(String.valueOf(pokemonStats.getStats()[0].getStat().getName()));
+                    tvHP.setText(String.valueOf(pokemonStats.getStats()[0].getBaseStat()));
                 }
             }
-
             @Override
             public void onFailure(Call<PokemonStats> call, Throwable t) {
                 Log.d(Constants.DEBUG_POKEMON,"Algo falla amigo"+t.toString());
