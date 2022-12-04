@@ -5,6 +5,14 @@ public class Stat {
     private long effort;
     private Species stat;
 
+    public Species getStat() {
+        return stat;
+    }
+
+    public void setStat(Species stat) {
+        this.stat = stat;
+    }
+
     public long getBaseStat() {
         return baseStat;
     }
@@ -21,11 +29,5 @@ public class Stat {
         this.effort = value;
     }
 
-    public Species getStat() {
-        return stat;
-    }
 
-    public void setStat(Species value) {
-        this.stat = value;
-    }
 }

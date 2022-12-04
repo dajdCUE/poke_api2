@@ -89,7 +89,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(context, pokemonPage.class);
-                    i.putExtra("nombre", pokemon.getName());
+                    i.putExtra("id", pokemon.getId());
                     context.startActivity(i);
                 }
             });

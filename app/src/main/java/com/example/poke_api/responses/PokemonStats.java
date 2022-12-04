@@ -100,18 +100,6 @@ class Ability {
 // Species.java
 
 
-
-class Species {
-    private String name;
-    private String url;
-
-    public String getName() { return name; }
-    public void setName(String value) { this.name = value; }
-
-    public String getURL() { return url; }
-    public void setURL(String value) { this.url = value; }
-}
-
 // GameIndex.java
 
 
@@ -152,6 +140,19 @@ class Species {
 
     public Species getVersion() { return version; }
     public void setVersion(Species value) { this.version = value; }
+
+
+}
+
+class Species {
+    private String name;
+    private String url;
+
+    public String getName() { return name; }
+    public void setName(String value) { this.name = value; }
+
+    public String getURL() { return url; }
+    public void setURL(String value) { this.url = value; }
 }
 
 // Move.java
