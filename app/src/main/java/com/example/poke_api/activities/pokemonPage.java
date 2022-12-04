@@ -1,22 +1,19 @@
 package com.example.poke_api.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.poke_api.R;
-import com.example.poke_api.models.Pokemon;
 import com.example.poke_api.network.PokeApi;
 import com.example.poke_api.responses.PokemonStats;
 import com.example.poke_api.utils.Constants;
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,8 +23,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class pokemonPage extends AppCompatActivity {
 
-    private RecyclerView rvPokemonStat;
-
 
 
     @Override
@@ -35,7 +30,9 @@ public class pokemonPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon_page);
 
-        TextView tv = (TextView) findViewById(R.id.tv_stats);
+        TextView tvHp = (TextView) findViewById(R.id.tvHPDef);
+        TextView tvName = (TextView) findViewById(R.id.tvNameDef);
+        ImageView ivPoke = (ImageView) findViewById(R.id.ivPokStat);
 
         Intent i = getIntent();
 
@@ -43,9 +40,6 @@ public class pokemonPage extends AppCompatActivity {
 
         String baseUrl="https://pokeapi.co/api/v2/";
 
-
-
-        //String endpointIdPokemon =
         //Lamamos a la instancia de builder
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
@@ -53,13 +47,13 @@ public class pokemonPage extends AppCompatActivity {
                 .build();
 
 
-        loadPokemonStats(retrofit,id, tv);
+        loadPokemonStats(retrofit,id, tvHp, ivPoke, tvName);
 
 
 
     }
 
-    private void loadPokemonStats(Retrofit retrofit, String id, TextView tv){
+    private void loadPokemonStats(Retrofit retrofit, String id, TextView tvHP, ImageView iv, TextView tvName){
         PokeApi api = retrofit.create(PokeApi.class);
         Call<PokemonStats> call = api.getPokemonById(id);
 
@@ -69,15 +63,27 @@ public class pokemonPage extends AppCompatActivity {
                 if(response.isSuccessful()){
                     PokemonStats pokemonStats = response.body();
 
-                    /*Stat[] pokemonStatsList1 = pokemonStats.getStats();
-                    pokemonStatsList.add(pokemonStatsList1);
-                    for (Stat[] item : pokemonStatsList) {
+                    //System.out.println(""+pokemonStats.getStatsList().get(0).getBaseStat());
 
-                        System.out.println(""+item[0].getBaseStat());
-                    }*/
-                    assert pokemonStats != null;
-                    tv.setText(String.valueOf(pokemonStats.getName()));
+                    //tv.setText(""+pokemonStats.getStatsList().get(0).getStat().getName());
+                    //String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"+id+".gif";
 
+
+                    String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+id+".png";
+
+
+
+                    // Insertamos imagen desde URL con Glide en el ImageView
+                    Glide.with(getApplicationContext())
+                            .load(urlSprite)
+                            .centerCrop()
+                            .error(R.drawable.pokeball_background)
+                            .fitCenter()
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .into(iv);
+
+
+                    tvName.setText(pokemonStats.getName());
                 }
             }
 

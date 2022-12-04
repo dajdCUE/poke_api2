@@ -9,10 +9,10 @@ import retrofit2.http.Path;
 
 public interface PokeApi {
 
-    @GET("pokemon")
+    @GET("pokemon?limit=10000&offset=0")
     Call<PokemonResponse> getPokemonList();
 
-    @GET("pokemon/{id}/")
+    @GET("pokemon/{id}")
     Call<PokemonStats> getPokemonById(@Path("id") String id);
 
 }

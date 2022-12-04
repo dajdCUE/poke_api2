@@ -6,11 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".activities.pokemonPage">
 
-    <TextView
-        android:id="@+id/tv_stats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pokemon Stats"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="224dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivPokStat"
+            android:layout_width="match_parent"
+            android:layout_height="370dp"
+            app:srcCompat="@mipmap/pokeball_foreground" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvNamePokePage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Nombre" />
+
+            <TextView
+                android:id="@+id/tvNameDef"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvHP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="HP" />
+
+            <TextView
+                android:id="@+id/tvHPDef"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="HP" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAttack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attack" />
+
+        <TextView
+            android:id="@+id/tvdefense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Defense" />
+
+        <TextView
+            android:id="@+id/tvSpeciAttack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Special Attack" />
+
+        <TextView
+            android:id="@+id/tvSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Speed" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
