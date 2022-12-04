@@ -10,10 +10,13 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.poke_api.R;
+import com.example.poke_api.models.Stat;
 import com.example.poke_api.network.PokeApi;
 import com.example.poke_api.responses.PokemonStats;
 import com.example.poke_api.utils.Constants;
 
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class pokemonPage extends AppCompatActivity {
 
-
+    private List<Stat> statList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +87,12 @@ public class pokemonPage extends AppCompatActivity {
 
 
                     tvName.setText(pokemonStats.getName());
+                    if(pokemonStats.getStats()[0].getBaseStat() == 0){
+                        System.out.println("esto no funciona");
+                    }else{
+                        System.out.println("Vamos bien" + pokemonStats.getStats()[0].getBaseStat());
+                    }
+                    tvHP.setText(String.valueOf(pokemonStats.getStats()[0].getStat().getName()));
                 }
             }
 

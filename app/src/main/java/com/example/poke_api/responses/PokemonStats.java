@@ -1,6 +1,4 @@
 package com.example.poke_api.responses;
-
-
 import com.example.poke_api.models.Ability;
 import com.example.poke_api.models.GameIndex;
 import com.example.poke_api.models.HeldItem;
@@ -9,9 +7,6 @@ import com.example.poke_api.models.Species;
 import com.example.poke_api.models.Sprites;
 import com.example.poke_api.models.Stat;
 import com.example.poke_api.models.Type;
-import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 public class PokemonStats {
     private Ability[] abilities;
@@ -29,9 +24,7 @@ public class PokemonStats {
     private Object[] pastTypes;
     private Species species;
     private Sprites sprites;
-    @SerializedName("stats")
-    private List<Stat> stats;
-
+    private Stat[] stats;
     private Type[] types;
     private long weight;
 
@@ -80,8 +73,8 @@ public class PokemonStats {
     public Sprites getSprites() { return sprites; }
     public void setSprites(Sprites value) { this.sprites = value; }
 
-    public List<Stat> getStatsList() { return stats; }
-    public void setStats(List<Stat> value) { this.stats = value; }
+    public Stat[] getStats() { return stats; }
+    public void setStats(Stat[] value) { this.stats = value; }
 
     public Type[] getTypes() { return types; }
     public void setTypes(Type[] value) { this.types = value; }

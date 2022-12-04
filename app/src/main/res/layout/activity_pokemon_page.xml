@@ -61,29 +61,85 @@
                 android:text="HP" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvAttack"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Attack" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvdefense"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Defense" />
+            <TextView
+                android:id="@+id/tvAttack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Attack" />
 
-        <TextView
-            android:id="@+id/tvSpeciAttack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Special Attack" />
+            <TextView
+                android:id="@+id/tvAttackDef"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Attack" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvSpeed"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Speed" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvdefense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Defense" />
+
+            <TextView
+                android:id="@+id/tvDefenseDef"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Defense" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvSpeciAttack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Special Attack" />
+
+            <TextView
+                android:id="@+id/tvSpecialAttackDef"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Special Attack" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvSpeed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Speed" />
+
+            <TextView
+                android:id="@+id/tvSpeedDef"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Speed" />
+        </LinearLayout>
 
     </LinearLayout>
 
