@@ -55,13 +55,14 @@ public class pokemonPage extends AppCompatActivity {
                 .build();
 
 
-        loadPokemonStats(retrofit,id, tvHp, ivPoke, tvName, tvAttack);
+        loadPokemonStats(retrofit,id, tvHp, ivPoke, tvName, tvAttack, tvDefense, tvSpecialAttack, tvSpeed);
 
 
 
     }
 
-    private void loadPokemonStats(Retrofit retrofit, String id, TextView tvHP, ImageView iv, TextView tvName, TextView tvAttack){
+    private void loadPokemonStats(Retrofit retrofit, String id, TextView tvHP, ImageView iv, TextView tvName, TextView tvAttack,
+    TextView tvDefense, TextView tvSpecialAttack, TextView tvSpeed){
         PokeApi api = retrofit.create(PokeApi.class);
         Call<PokemonStats> call = api.getPokemonById(id);
 
@@ -72,9 +73,9 @@ public class pokemonPage extends AppCompatActivity {
                     PokemonStats pokemonStats = response.body();
                     System.out.println(pokemonStats.getAbilities()[0].getAbility().getName());
 
-                    String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+id+".png";
+                    //String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+id+".png";
 
-
+                    String urlSprite = pokemonStats.getSprites().getOther().getOfficialArtwork().getFrontDefault();
 
                     // Insertamos imagen desde URL con Glide en el ImageView
                     Glide.with(getApplicationContext())
@@ -87,16 +88,11 @@ public class pokemonPage extends AppCompatActivity {
 
 
                     tvName.setText(pokemonStats.getName());
-                    /*if(pokemonStats.getStats()[0].getBaseStat() == 0){
-                        System.out.println("esto no funciona");
-                        System.out.println(pokemonStats.getSprites().getFrontDefault());
-
-                    }else{
-                        System.out.println("Vamos bien" + pokemonStats.getStats()[0].getBaseStat());
-                    }*/
-                   
-                    tvHP.setText(""+pokemonStats.getStats()[0].getBaseStat());
+                    tvHP.setText(String.valueOf(pokemonStats.getStats()[0].getBaseStat()));
                     tvAttack.setText(String.valueOf(pokemonStats.getStats()[1].getBaseStat()));
+                    tvDefense.setText(String.valueOf(pokemonStats.getStats()[2].getBaseStat()));
+                    tvSpecialAttack.setText(String.valueOf(pokemonStats.getStats()[3].getBaseStat()));
+                    tvSpeed.setText(String.valueOf(pokemonStats.getStats()[5].getBaseStat()));
                 }
             }
             @Override

@@ -1,8 +1,15 @@
 package com.example.poke_api.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Other {
+    @SerializedName("dream_world")
     private DreamWorld dreamWorld;
+
+
     private Home home;
+
+    @SerializedName("official-artwork")
     private OfficialArtwork officialArtwork;
 
     public DreamWorld getDreamWorld() {
