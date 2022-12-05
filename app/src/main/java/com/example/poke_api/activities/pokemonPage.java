@@ -87,12 +87,13 @@ public class pokemonPage extends AppCompatActivity {
 
 
                     tvName.setText(pokemonStats.getName());
-                    if(pokemonStats.getStats()[0].getBaseStat() == 0){
+                    /*if(pokemonStats.getStats()[0].getBaseStat() == 0){
                         System.out.println("esto no funciona");
+                        System.out.println(pokemonStats.getSprites().getFrontDefault());
 
                     }else{
                         System.out.println("Vamos bien" + pokemonStats.getStats()[0].getBaseStat());
-                    }
+                    }*/
                    
                     tvHP.setText(""+pokemonStats.getStats()[0].getBaseStat());
                     tvAttack.setText(String.valueOf(pokemonStats.getStats()[1].getBaseStat()));

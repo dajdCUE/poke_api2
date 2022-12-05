@@ -7,6 +7,7 @@ import com.example.poke_api.models.Species;
 import com.example.poke_api.models.Sprites;
 import com.example.poke_api.models.Stat;
 import com.example.poke_api.models.Type;
+import com.google.gson.annotations.SerializedName;
 
 public class PokemonStats {
     private Ability[] abilities;
@@ -23,7 +24,11 @@ public class PokemonStats {
     private long order;
     private Object[] pastTypes;
     private Species species;
+
+    @SerializedName("sprites")
     private Sprites sprites;
+
+    @SerializedName("stats")
     private Stat[] stats;
     private Type[] types;
     private long weight;
