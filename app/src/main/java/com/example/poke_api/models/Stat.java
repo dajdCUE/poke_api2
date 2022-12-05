@@ -1,6 +1,10 @@
 package com.example.poke_api.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Stat {
+
+    @SerializedName("base_stat")
     private int baseStat;
     private long effort;
     private Species stat;
