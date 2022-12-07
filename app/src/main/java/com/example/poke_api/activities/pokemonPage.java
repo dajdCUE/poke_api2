@@ -16,6 +16,8 @@ import com.example.poke_api.responses.PokemonStats;
 import com.example.poke_api.utils.Constants;
 
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -40,7 +42,11 @@ public class pokemonPage extends AppCompatActivity {
         TextView tvDefense = (TextView) findViewById(R.id.tvDefenseDef);
         TextView tvSpecialAttack = (TextView) findViewById(R.id.tvSpecialAttackDef);
         TextView tvSpeed = (TextView) findViewById(R.id.tvSpeedDef);
+        TextView tvNameBig = (TextView) findViewById(R.id.tvNameBig);
+        TextView tvPeso = (TextView) findViewById(R.id.tvPeso);
+        TextView tvAltura = (TextView) findViewById(R.id.tvAltura);
         ImageView ivPoke = (ImageView) findViewById(R.id.ivPokStat);
+
 
         Intent i = getIntent();
 
@@ -55,14 +61,14 @@ public class pokemonPage extends AppCompatActivity {
                 .build();
 
 
-        loadPokemonStats(retrofit,id, tvHp, ivPoke, tvName, tvAttack, tvDefense, tvSpecialAttack, tvSpeed);
+        loadPokemonStats(retrofit,id, tvHp, ivPoke, tvName, tvAttack, tvDefense, tvSpecialAttack, tvSpeed, tvNameBig);
 
 
 
     }
 
     private void loadPokemonStats(Retrofit retrofit, String id, TextView tvHP, ImageView iv, TextView tvName, TextView tvAttack,
-    TextView tvDefense, TextView tvSpecialAttack, TextView tvSpeed){
+    TextView tvDefense, TextView tvSpecialAttack, TextView tvSpeed, TextView tvNameBig){
         PokeApi api = retrofit.create(PokeApi.class);
         Call<PokemonStats> call = api.getPokemonById(id);
 
@@ -86,7 +92,7 @@ public class pokemonPage extends AppCompatActivity {
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .into(iv);
 
-
+                    tvNameBig.setText(pokemonStats.getName() + "#" + pokemonStats.getID());
                     tvName.setText(pokemonStats.getName());
                     tvHP.setText(String.valueOf(pokemonStats.getStats()[0].getBaseStat()));
                     tvAttack.setText(String.valueOf(pokemonStats.getStats()[1].getBaseStat()));
