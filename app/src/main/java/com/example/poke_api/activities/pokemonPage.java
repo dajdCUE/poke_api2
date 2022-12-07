@@ -61,14 +61,14 @@ public class pokemonPage extends AppCompatActivity {
                 .build();
 
 
-        loadPokemonStats(retrofit,id, tvHp, ivPoke, tvName, tvAttack, tvDefense, tvSpecialAttack, tvSpeed, tvNameBig);
+        loadPokemonStats(retrofit,id, tvHp, ivPoke, tvName, tvAttack, tvDefense, tvSpecialAttack, tvSpeed, tvNameBig, tvPeso, tvAltura);
 
 
 
     }
 
     private void loadPokemonStats(Retrofit retrofit, String id, TextView tvHP, ImageView iv, TextView tvName, TextView tvAttack,
-    TextView tvDefense, TextView tvSpecialAttack, TextView tvSpeed, TextView tvNameBig){
+    TextView tvDefense, TextView tvSpecialAttack, TextView tvSpeed, TextView tvNameBig, TextView tvPeso, TextView tvAltura){
         PokeApi api = retrofit.create(PokeApi.class);
         Call<PokemonStats> call = api.getPokemonById(id);
 
@@ -82,7 +82,7 @@ public class pokemonPage extends AppCompatActivity {
                     //String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+id+".png";
 
                     String urlSprite = pokemonStats.getSprites().getOther().getOfficialArtwork().getFrontDefault();
-
+                    
                     // Insertamos imagen desde URL con Glide en el ImageView
                     Glide.with(getApplicationContext())
                             .load(urlSprite)
@@ -92,6 +92,9 @@ public class pokemonPage extends AppCompatActivity {
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .into(iv);
 
+
+                    tvPeso.setText(String.valueOf(pokemonStats.getWeight()) + " Kg");
+                    tvAltura.setText(String.valueOf(pokemonStats.getHeight())+ " m");
                     tvNameBig.setText(pokemonStats.getName() + "#" + pokemonStats.getID());
                     tvName.setText(pokemonStats.getName());
                     tvHP.setText(String.valueOf(pokemonStats.getStats()[0].getBaseStat()));
