@@ -28,8 +28,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class pokemonPage extends AppCompatActivity {
 
-    private List<Stat> statList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +67,8 @@ public class pokemonPage extends AppCompatActivity {
 
     private void loadPokemonStats(Retrofit retrofit, String id, TextView tvHP, ImageView iv, TextView tvName, TextView tvAttack,
     TextView tvDefense, TextView tvSpecialAttack, TextView tvSpeed, TextView tvNameBig, TextView tvPeso, TextView tvAltura){
+
+
         PokeApi api = retrofit.create(PokeApi.class);
         Call<PokemonStats> call = api.getPokemonById(id);
 
@@ -77,12 +77,12 @@ public class pokemonPage extends AppCompatActivity {
             public void onResponse(Call<PokemonStats> call, Response<PokemonStats> response) {
                 if(response.isSuccessful()){
                     PokemonStats pokemonStats = response.body();
-                    System.out.println(pokemonStats.getAbilities()[0].getAbility().getName());
+
 
                     //String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+id+".png";
 
                     String urlSprite = pokemonStats.getSprites().getOther().getOfficialArtwork().getFrontDefault();
-                    
+
                     // Insertamos imagen desde URL con Glide en el ImageView
                     Glide.with(getApplicationContext())
                             .load(urlSprite)
