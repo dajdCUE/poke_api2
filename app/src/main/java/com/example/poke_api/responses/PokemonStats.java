@@ -11,7 +11,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class PokemonStats {
     private Ability[] abilities;
+
+    @SerializedName("base_experience")
     private long baseExperience;
+
     private Species[] forms;
     private GameIndex[] gameIndices;
     private long height;
