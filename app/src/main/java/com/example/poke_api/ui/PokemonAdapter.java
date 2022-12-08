@@ -2,6 +2,7 @@ package com.example.poke_api.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
     public PokemonAdapter(List<Pokemon> pokemonList, Context context) {
         this.pokemonList = pokemonList;
         this.context = context;
+
     }
 
 
@@ -74,7 +76,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
             tvUrl.setText(pokemon.getUrl());
 
 
-            String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/"+pokemon.getId()+".gif";
+            String urlSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+pokemon.getId()+".png";
 
 // Insertamos imagen desde URL con Glide en el ImageView
             Glide.with(context)
@@ -88,6 +90,8 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+
                     Intent i = new Intent(context, pokemonPage.class);
                     i.putExtra("id", pokemon.getId());
                     context.startActivity(i);

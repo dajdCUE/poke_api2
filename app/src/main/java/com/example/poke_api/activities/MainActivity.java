@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -29,12 +30,26 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvPokemon;
     private PokemonAdapter pokemonAdapter;
     private List<Pokemon> pokemonList;
+    MediaPlayer mediaPlayer;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.pokemontheme);
+
+
+            mediaPlayer.start();
+
+
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.start();
+            }
+        });
 
         // Declaración y asociación de objetos base (dentro del onCreate)
         pokemonList = new ArrayList<Pokemon>();
@@ -69,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
     private void loadPokemons(Retrofit retrofit) {
         //Instanciamos la API de pokemon

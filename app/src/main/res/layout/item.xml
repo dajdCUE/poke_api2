@@ -84,7 +84,7 @@
                                 android:textAllCaps="true"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 android:textStyle="bold"
-                                android:typeface="serif" />
+                                android:typeface="sans" />
                         </LinearLayout>
 
                         <LinearLayout
