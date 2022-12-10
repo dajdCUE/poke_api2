@@ -79,6 +79,7 @@ public class pokemonPage extends AppCompatActivity {
                     Glide.with(getApplicationContext())
                             .load(urlSprite)
                             .centerCrop()
+                            .placeholder(R.mipmap.pokeball_foreground)
                             .error(R.drawable.pokeball_background)
                             .fitCenter()
                             .diskCacheStrategy(DiskCacheStrategy.ALL)

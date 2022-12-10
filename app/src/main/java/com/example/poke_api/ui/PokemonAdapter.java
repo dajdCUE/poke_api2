@@ -82,6 +82,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
             Glide.with(context)
                     .load(urlSprite)
                     .centerCrop()
+                    .placeholder(R.mipmap.pokeball_foreground)
                     .error(R.drawable.pokeball_background)
                     .fitCenter()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
